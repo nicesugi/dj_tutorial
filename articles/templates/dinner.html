@@ -13,4 +13,17 @@
 <p>먹어볼까? 고민하자!</p>
 {% else %}
 <p>맛있겠다! 시키자!</p>
-{% endif %}{% endblock %}
+{% endif %}
+<h1>리뷰 리스트</h1>
+{% for article in articles %}
+<p>글 번호 : {{ article.pk }}</p>
+<p>글 제목 : {{ article.title }}</p>
+<p>글 내용 : {{ article.content }}</p>
+<hr  />
+
+
+{% endfor %}
+
+
+
+{% endblock %}
