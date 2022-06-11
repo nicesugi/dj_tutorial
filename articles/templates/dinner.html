@@ -3,7 +3,7 @@
 <h1>메뉴</h1>
 <ul>
     {% for menu in menus %}
-    <li>{{ menu.menu }} {{ menu.price }}원</li>
+    <li>{{ menu.name }} {{ menu.price }}원</li>
     {% endfor %}
 </ul>
 
@@ -14,16 +14,14 @@
 {% else %}
 <p>맛있겠다! 시키자!</p>
 {% endif %}
+
 <h1>리뷰 리스트</h1>
 {% for article in articles %}
-<p>글 번호 : {{ article.pk }}</p>
-<p>글 제목 : {{ article.title }}</p>
-<p>글 내용 : {{ article.content }}</p>
-<hr  />
-
-
+    <p>글 번호 : {{ article.pk }}</p>
+    <p>글 제목 : {{ article.title }}</p>
+    <p>글 내용 : {{ article.content }}</p>
 {% endfor %}
-
+<hr  />
 
 
 {% endblock %}
