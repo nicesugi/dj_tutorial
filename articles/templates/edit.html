@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 class="text-content">EDIT</h2>
+<h1 class="text-content">EDIT</h1>
 <form
  class="form-group" 
- action="#" 
+ action="{% url 'articles:edit_update' article.pk %}" 
  method="POST"
 >
     {% csrf_token %} 
     <label for="title">Title: </label>
-    <input class="form-control" type="text" name="title" value="{{ article.title }}"/><br>
+    <input class="form-control" type="text" name="title" value="{{ article.title }}"/>
+    <br />
     <label for="content">Content: </label>
-    <textarea class="form-control" name="content" cols="30" rows='5'>{{ article.content }}</textarea><br>
-    <input type="submit">
+    <textarea class="form-control" name="content" cols="30" rows='5'>{{ article.content }}</textarea>
+    <br />
+    <input type="submit" />
 </form>
 
 {% endblock %}

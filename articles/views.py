@@ -62,3 +62,16 @@ def edit(request, pk):
     }
     
     return render(request, 'edit.html', context)
+
+
+def edit_update(request, pk):
+    print(f'request.POST> {request.POST}')
+    article = Article.objects.get(pk=pk)
+    print(f'pk> {article}') 
+    article.title = request.POST.get('title') 
+    print(f'request.title> {article.title}')
+    article.content = request.POST.get('content')
+    print(f'request.content> {article.content}')
+    article.save()
+    
+    return redirect('articles:detail', article.pk)
