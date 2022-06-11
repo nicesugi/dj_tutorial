@@ -5,5 +5,7 @@
 <p>제목: {{ article.title }}</p>
 <p>내용: {{ article.content }}</p>
 <p>작성시간: {{ article.created_at|date:"SHORT_DATE_FORMAT" }}</p>
+<a href="{% url 'articles:delete' article.pk %}">[DELETE]</a>
+<a href="{% url 'articles:dinner' %}">[back]</a>
 <hr />
 {% endblock%}

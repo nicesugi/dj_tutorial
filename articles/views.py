@@ -8,14 +8,13 @@ def index(request):
     return render(request, 'index.html')
 
 
-def dinner(request, name):
+def dinner(request):
     menus = [{'name':'족발', 'price':30000}, {'name':'햄버거', 'price':5000}, {'name':'치킨', 'price':20000}, {'name':'초밥','price':15000}]
     pick = random.choice(menus)
     articles = Article.objects.order_by('-pk')
     context = {
         'pick': pick,
-        'name': name,
-        # 'menus':menus,
+        'menus':menus,
         'articles':articles,
     }
     
@@ -36,7 +35,7 @@ def create_review(request):
     article.save()
     
     
-    return redirect('/articles/dinner/무언가/')
+    return redirect('articles:detail', article.pk)
 
 
 def detail(request, pk):
@@ -45,3 +44,9 @@ def detail(request, pk):
         'article': article,
     }
     return render(request, 'detail.html', context)
+
+
+def delete(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.delete()
+    return redirect('articles:dinner')
