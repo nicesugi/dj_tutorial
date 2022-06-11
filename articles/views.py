@@ -54,7 +54,7 @@ def delete(request, pk):
         
     return redirect('articles:dinner')
 
-def edit(requset, pk):
+def edit(request, pk):
     article = Article.objects.get(pk=pk)
     
     context = {
